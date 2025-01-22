@@ -1,0 +1,42 @@
+{% extends 'libros/base.html' %}
+
+{% load static %}
+
+
+{% block vistaPrestamos %}
+
+
+<h1>Buscar prestamo por nombre</h1>
+
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+method="GET">
+  {% csrf_token %}
+  <div class="input-group">
+    <input class="form-control me-2" name="buscar" type="search" placeholder="Buscar..." aria-label="Search" value="" type="text">
+    <button type="submit" class="btn btn-sm btn-outline-secondary">Buscar</button>
+  </div>
+</form>
+
+<br><hr>
+
+
+<h2>Prestamos Actuales</h2>
+
+    <ul>
+        {% for prestamo in prestamos %}
+        <li>Numero de Pedido: {{ prestamo.numero_de_pedido }}</li>
+        <li>Nombre: {{ prestamo.nombre }}</li>
+        <li>Apellido : {{ prestamo.apellido }}</li>
+        <li> Libro Solicitado : {{ prestamo.libro_solicitado }}</li>
+        <br>
+        <a href="{% url "prestamo_delete" prestamo.numero_de_pedido %}" class="btn btn-sm btn-outline-danger">Eliminar Prestamo</a>
+    </ul>
+    <br><hr>
+    {% endfor %}
+
+
+{% endblock %}
+
+
+<input class="form-control me-2" name="buscar" type="search" placeholder="Buscar..." aria-label="Search" value="" type="text">
+    

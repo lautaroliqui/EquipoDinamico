@@ -1,0 +1,16 @@
+{% extends 'libros/base.html' %}
+
+{% load static %}
+
+{% block prestamo_delete %}
+
+
+<form action="" method="post">{% csrf_token %}
+    <h1 style="color: red;">Estas seguro que desea borrar? </h1>
+    <button class="btn btn-outline-danger" type="submit" ><a>CONFIMAR</a></button>
+    <button class="btn btn-outline-success" type="submit" ><a href="{% url "vistaPrestamo"  %}">CANCELAR</a></button>
+  </form>      
+
+
+
+{% endblock %}

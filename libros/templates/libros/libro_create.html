@@ -1,0 +1,23 @@
+{% extends 'libros/base.html' %}
+
+{% load static %}
+
+{% block libro_create %}
+
+<h2>Creando Libro</h2>
+
+<form method="post" action="{% url 'libro_create' %}" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" value="Crear">Crear Libro</button>
+</form>
+
+
+{% endblock %}
+
+
+
+
+
+
+<br><hr>

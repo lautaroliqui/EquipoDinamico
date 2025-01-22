@@ -1,0 +1,31 @@
+{% extends 'Apk1/base.html' %}
+
+{% load static  %}
+
+{% block ingresar %}
+
+{% if user.is_authenticated %}
+
+<h2>Esta logueado actualmente</h2>
+
+{% else %}
+
+<form action="{% url "ingresar" %}" method="POST"> {% csrf_token %}
+
+    <table>
+        {{ form.as_table }}
+    </table>
+
+    <input type="submit" value="INGRESAR">
+
+</form>
+
+{% endif %}
+
+<h1 style="display: block; color: red;"> {{mensajeIncorrecto}}</h1>
+
+<h1 style="display: block; color: aqua;"> {{mensajeCorrecto}}</h1>
+
+
+
+{% endblock %}

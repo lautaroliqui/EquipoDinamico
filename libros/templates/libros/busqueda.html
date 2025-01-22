@@ -1,0 +1,10 @@
+{%  extends 'libros/base.html' %}
+{% load static %}
+
+
+{% block Busqueda %}
+
+<a href= "{% url "vistaLibros" %}" class="btn btn-outline-light">Busqueda por Libro o autor</a>
+<a href= "{% url "vistaPrestamo" %}" class="btn btn-outline-light">Busqueda por prestamo</a>
+<br><hr>
+{% endblock %}

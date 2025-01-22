@@ -1,0 +1,81 @@
+{% extends 'Apk1/base.html' %}
+{% load static %}
+
+{% block titulo %}
+
+Biblioteca Dinamica-Contacto
+
+{% endblock %}
+
+{% block contenido1 %}
+<h1>Contacto</h1>
+
+
+{% endblock %}
+
+{% block contacto %}
+
+<form class="row g-3">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Nombre</label>
+      <input type="Nombre" class="form-control" id="inputEmail4">
+    </div>
+    <div class="col-md-6">
+      <label for="inputState" class="form-label">Apellido</label>
+      <input type="Apellido" class="form-control" id="Apellido">
+    </div>
+    <div class="col-12">
+      <label for="inputAddress" class="form-label">Correo Electronico</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="Pedrito2123@gmail.com">
+    </div>
+
+    <div class="form-floating">
+        <label for="floatingTextarea">Comentario</label><br><br>
+        <textarea class="form-control" placeholder="" id="floatingTextarea"></textarea>
+    </div>
+      
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">Ciudad</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="col-md-4">
+      <label for="inputState" class="form-label">Provincia</label>
+      <select id="inputState" class="form-select">
+        <option selected>Ninguna...</option>
+        <option>Jujuy</option>
+        <option>Salta</option>
+        <option>Tucuman</option>
+        <option>Buenos Aires</option>
+        <option>Santiago Del Estero</option>
+        <option>Formosa</option>
+        <option>San Juan</option>
+        <option>Tierra Del Fuego</option>
+        <option>Mendoza</option>
+        <option>Corrientes</option>
+        <option>La Pampa</option>
+        <option>Rio Negro</option>
+        <option>Chubut</option>
+        <option>Neuquen</option>
+        <option>Cordoba</option>
+        <option>Misiones</option>
+        <option>Entre Rios</option>
+        <option>Santa Fe</option>
+        <option>Catamarca</option>
+        <option>San Luis</option>
+        <option>Santa Cruz</option>
+        <option>CABA</option>
+        <option>Chaco</option>
+        <option></option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label for="inputZip" class="form-label">Codigo Postal</label>
+      <input type="text" class="form-control" id="inputZip" placeholder="4600">
+    </div>
+      
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Ingresar</button>
+    </div>
+  </form>
+  <br><hr>
+{% endblock %}

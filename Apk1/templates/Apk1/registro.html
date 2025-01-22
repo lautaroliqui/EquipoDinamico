@@ -1,0 +1,18 @@
+{% extends 'Apk1/base.html' %}
+{% load  static %}
+
+{% block registro %}
+
+<form action="{% url "registro" %}" method="POST"> {% csrf_token %}
+
+    <table>
+        {{ form.as_table }}
+    </table>
+
+    <input type="submit" value="CREAR USUARIO">
+
+</form>
+
+{{mensaje}}
+
+{% endblock %}
