@@ -10,16 +10,16 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 def base(request):
-    return render(request,"Apk1/base.html")
+    return render(request,"base.html")
 
 def inicio(request):
-    return render(request,"Apk1/inicio.html")
+    return render(request,"inicio.html")
 
 def AcercaDe(request):
-    return render(request,"Apk1/AcercaDe.html")
+    return render(request,"AcercaDe.html")
 
 def contacto(request):
-    return render(request,"Apk1/contacto.html")
+    return render(request,"contacto.html")
 
 def registro(request):
     if request.method == "POST":

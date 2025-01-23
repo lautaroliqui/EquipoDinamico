@@ -60,7 +60,8 @@ ROOT_URLCONF = 'EquipoDinamico.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'Apk1/templates'),
+            os.path.join(BASE_DIR, 'libros/templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

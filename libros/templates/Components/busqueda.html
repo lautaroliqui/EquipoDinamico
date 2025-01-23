@@ -1,0 +1,12 @@
+{% block herramientaBusqueda %}
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-md-0 mw-100 navbar-search"
+method="GET">
+{% csrf_token %}
+<div class="input-group">
+    <div class="input-group-text">{% include "Icons/book.html" %}</div>
+    <input class="form-control" name="buscar" type="search" placeholder="Buscar..." aria-label="Search"
+        value="" type="text">
+    <button type="submit" class="btn btn-sm btn-success">Buscar</button>
+</div>
+</form>
+{% endblock %}

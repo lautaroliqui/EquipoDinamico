@@ -16,34 +16,34 @@ def base(request):
 
 
 def libros(request):
+    return render(request,"libros.html")
+
+#def libros(request):
     Libros = Libro.objects.all()
-    return render(request,"libros/libros.html", {'libros': Libros})
+    return render(request,"libros.html", {'libros': Libros})
 
 
 
 class LibroCreateView(CreateView):
     model = Libro
-    template_name = "libros/libro_create.html"
+    template_name = "libro_create.html"
     form_class = LibroForm
     success_url = reverse_lazy("libros")
 
 class LibroUpdateView(UpdateView):
     model = Libro
-    template_name = "libros/libro_update.html"
+    template_name = "libro_update.html"
     form_class = LibroForm
     success_url = reverse_lazy("libros")
 
 class LibroDeleteView(DeleteView):
     model = Libro
-    template_name = "libros/libro_delete.html"
+    template_name = "libro_delete.html"
     success_url = reverse_lazy("libros")
-
-
-
         
 
 def busqueda(request):
-    return render(request,"libros/busqueda.html")
+    return render(request,"busqueda.html")
 
 
 def ModeloVista(request):
@@ -57,7 +57,7 @@ def ModeloVista(request):
         ).distinct()
 
 
-    return render(request,"libros/vistaLibros.html",{'libros': libros})
+    return render(request,"vistaLibros.html",{'libros': libros})
 
 
 def vistaPrestamo(request):
@@ -69,16 +69,16 @@ def vistaPrestamo(request):
         prestamos = Prestamo.objects.filter(
             Q(nombre__icontains = busqueda)
             ).distinct()
-    return render(request,"libros/vistaPrestamo.html",{"prestamos": prestamos})
+    return render(request,"vistaPrestamo.html",{"prestamos": prestamos})
 
 class PrestamoCreateView(CreateView):
     model = Prestamo
-    template_name = "libros/prestamo.html"
+    template_name = "prestamo.html"
     form_class = PrestamoForm
     success_url = reverse_lazy("prestamo")
 
 
 class PrestamoDeleteView(DeleteView):
     model = Prestamo
-    template_name = "libros/prestamo_delete.html"
+    template_name = "prestamo_delete.html"
     success_url = reverse_lazy("vistaPrestamo")

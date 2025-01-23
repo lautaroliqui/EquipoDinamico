@@ -1,0 +1,70 @@
+{% block header %}
+<!--Header-->
+<header class="navbar border-bottom mb-3 p-1" data-bs-theme="dark">
+
+    <!-- Navbar content -->
+    <nav class="d-flex align-items-center gap-1">
+
+        <div class="p-1 me-2"><img src="/static/img/Librazo.jpg" class=" rounded-circle " alt="Librazo" height="45">
+        </div>
+        
+        <a class="navbar-brand fs-6" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
+        <a class="navbar-brand fs-6" href="{% url 'libros' %}">Libros</a>
+        <a class="navbar-brand fs-6" href="{% url 'prestamo' %}">Prestamos</a>
+        <a class="navbar-brand fs-6" href="{% url 'busqueda' %}">Busqueda</a>
+        <a class="navbar-brand fs-6" href="{% url 'AcercaDe' %}">Acerca De</a>
+        <a class="navbar-brand fs-6" href="{% url 'contacto' %}">Contacto</a>
+
+    </nav>
+
+    <nav class=" navbar nav justify-content-end">
+        <form class="d-flex" role="search">
+
+            {% if user.is_authenticated %}
+            <div class="d-flex align-items-center gap-1 me-2 ">
+                <span>Log:</span>
+                <span class="bg-info-subtle fs-6  text-info text-capitalize">{{user.username}}</span>
+            </div>
+
+
+            <a href="{% url 'registro' %}" class="btn btn-outline-info me-md-2">Registro</a>
+            <a href="{% url 'salir' %}" class="btn btn-outline-warning">Salir</a>
+
+            {% else %}
+
+            <a href="{% url 'ingresar' %}" class="btn btn-outline-success me-md-2">Ingresar</a>
+            <a href="{% url 'registro' %}" class="btn btn-outline-info">Registro</a>
+
+            {% endif %}
+        </form>
+    </nav>
+    <!--
+        <nav class="navbar border-bottom border-body">
+            <div class="container-fluid">
+                Nav Toggle Button For Responsive Function
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                Nav General
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    Nav Img
+                    <a class="navbar-brand" href="#">
+
+                    </a>
+                    <div class="navbar-nav p-2 flex-grow-1">
+                    Nav Pages
+                    </div>
+
+                    Nav Busqueda
+                    
+
+
+                </div>
+            </div>
+        </nav>
+        -->
+
+</header>
+{% endblock %}
