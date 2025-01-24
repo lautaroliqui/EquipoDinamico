@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block ingresar %}
+
+{% if user.is_authenticated %}
+
+<section class="d-flex justify-content-center">
+
+    <h2>Esta logueado actualmente</h2>
+
+</section>
+
+
+{% else %}
+
+<section class="container p-2">
+
+    <div class="text-center my-4">
+        <h2 class="link-offset-2 text-decoration-underline">Iniciar Sesión</h2>
+    </div>
+
+    <form class="d-flex justify-content-center" action="{% url 'ingresar' %}" method="POST">
+
+        {% csrf_token %}
+
+        <div>
+            <!--Username-->
+            <div class="d-flex align-items-center justify-content-end m-2">
+                <h5 for="{{ form.username.id_for_label }}" class="fw-bold m-2 me-auto">
+                    {{ form.username.label }}:
+                </h5>
+                <div>
+                    {{ form.username }}
+                </div>
+            </div>
+
+            <!--Password-->
+            <div class="d-flex align-items-center justify-content-end m-2">
+                <h5 for="{{ form.password.id_for_label }}" class="fw-bold m-2 me-2">
+                    {{ form.password.label }}:
+                </h5>
+                <div>
+                    {{ form.password }}
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center my-3">
+                <button class="btn btn-success" type="submit" value="INGRESAR">INGRESAR</button>
+            </div>
+        </div>
+
+    </form>
+</section>
+
+
+{% endif %}
+
+{% if mensajeIncorrecto %}
+<div class="alert alert-danger" role="alert" style="display: block;">
+    {{mensajeIncorrecto}}
+</div>
+{% endif %}
+
+{% endblock %}

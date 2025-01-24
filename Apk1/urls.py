@@ -11,7 +11,4 @@ urlpatterns =[
     path("AcercaDe/", views.AcercaDe, name="AcercaDe"),
     path("inicio/", views.inicio, name="inicio"),
     path("contacto/", views.contacto, name="contacto"),
-    path("registro/", views.registro, name="registro"),
-    path("ingresar/", views.ingresar, name="ingresar"),
-    path("salir/", views.salir, name = "salir"),
 ]

@@ -20,11 +20,14 @@ from django.conf import settings
 from Apk1 import views
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.inicio),
     path("Apk1/", include("Apk1.urls")),
     path("libros/", include("libros.urls")),
+    path("usuarios/", include("usuarios.urls")),
+
     
 ]
 

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Apk1',
     'libros',
+    'usuarios'
     
 ]
 
@@ -61,7 +62,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'Apk1/templates'),
-            os.path.join(BASE_DIR, 'libros/templates'),],
+            os.path.join(BASE_DIR, 'libros/templates'),
+            os.path.join(BASE_DIR, 'usuarios/templates'),
+            os.path.join(BASE_DIR, 'static')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -15,12 +15,13 @@
         <h3 class="container ms-5 text-wrap mb-4">Una biblioteca con una variedad de libros que permite registrar préstamos de libros a miembros y gestionar la información básica de los mismos.</h3>
 
         <!--Busqueda-->
-
-        {% include 'Components/busqueda.html' %}
+        <div class="btn-lg">
+            {% include 'Components/busqueda.html' %}
+        </div>
 
         <div class="d-flex justify-content-center align-items-center gap-1 mt-5">
             <h5 class="m-0">Entrar al Catálogo:</h5>
-            <a class="btn btn-lg fw-semibold p-2 text-decoration-underline" href="libros/">Ver Libros</a>
+            <a class="fw-semibold p-2 text-decoration-underline link-body-emphasis link-offset-2" href="{% url 'libros' %}">Ver Libros</a>
         </div>
         
     </div>

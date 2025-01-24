@@ -1,9 +1,9 @@
-{% extends 'Apk1/base.html' %}
+{% extends 'base.html' %}
 {% load  static %}
 
 {% block registro %}
 
-<form action="{% url "registro" %}" method="POST"> {% csrf_token %}
+<form action="{% url 'registro' %}" method="POST"> {% csrf_token %}
 
     <table>
         {{ form.as_table }}
