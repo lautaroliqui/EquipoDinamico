@@ -1,14 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block titulo %}
 Biblioteca Dinamica - Libros
 {% endblock %}
-
 {% block libro %}
-
-
-
 <h3 class="position-absolute">Lista de Libros</h3>
 <nav class="d-flex justify-content-end gap-2 mb-5">
   {% if user.is_authenticated %}
@@ -22,19 +17,21 @@ Biblioteca Dinamica - Libros
 <section class="container row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
   {% for libro in libros %}
   <div class="col p-2">
-    <div class="card ">
+    <div class="card"style="min-height: 460px;">
 
       <!--Thumbnail-->
-      <div class="img-thumbnail z-1 imagen"
-        style="background-image: url('{{ libro.imagen.url }}'); background-size: cover; background-position: center;  ">
-        <h1 class="content">Hola Mundo</h1>
+      <div class="img-thumbnail imagen"
+        style="background-image: url('{{ libro.imagen.url }}');">
       </div>
       
       <!--
       <img id="preview" src="{{ libro.imagen.url }}" alt="Vista previa de la imagen" class="img-thumbnail"
         style=" max-width: 100%; height: 460px ;">
       -->
-      <div class="card-body d-flex flex-column align-items-center z-2" style="min-height: 460px;">        
+      <div class=""  style="height: 100%;">
+      </div>
+
+      <div class="content card-body d-flex flex-column align-items-center justify-content-end" style="height: 50%;">        
         <div class="">
           <div class="d-flex justify-content-end">
             <small class="text-body-secondary">Creado:&nbsp;</small>
@@ -52,13 +49,12 @@ Biblioteca Dinamica - Libros
           <span class="card-text"> ISBN : {{ libro.ISBN }}</span>
           <span class="card-text">Numero de inventario : {{ libro.numero_Inventario }}</span>
           <span class="card-text">Id: {{ libro.id }}</span>
-          
         </div>
       </div>
-      <div class="btn-group d-flex justify-content-start gap-1 z-3">
-        <a href="{% url 'libro_update' libro.id %}" class="btn btn-sm btn-outline-success">Editar</a>
-        <a href="{% url 'libro_delete' libro.id %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
-      </div>
+    </div>
+    <div class="btn-group d-flex justify-content-start gap-1 mt-2">
+      <a href="{% url 'libro_update' libro.id %}" class="btn btn-sm btn-outline-success">Editar</a>
+      <a href="{% url 'libro_delete' libro.id %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
     </div>
   </div>
   {% endfor %}
