@@ -8,21 +8,27 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import LibroForm, PrestamoForm
 from django.urls import reverse_lazy
-# Create your views here.
 
+class LibroCreateView(CreateView):
+    model = Libro
+    template_name = "libro_create.html"
+    form_class = LibroForm
+    success_url = reverse_lazy("libros")
+
+    def form_valid(self, form):
+        # Asignar el número de inventario de forma secuencial
+        ultimo_numero = Libro.objects.latest('numero_Inventario').numero_Inventario if Libro.objects.exists() else 0
+        form.instance.numero_Inventario = ultimo_numero + 1
+        return super().form_valid(form)
+
+# Create your views here.
 
 def base(request):
     return render(request,"libros/base.html")
 
-
 def libros(request):
-    return render(request,"libros.html")
-
-#def libros(request):
     Libros = Libro.objects.all()
     return render(request,"libros.html", {'libros': Libros})
-
-
 
 class LibroCreateView(CreateView):
     model = Libro
@@ -44,7 +50,6 @@ class LibroDeleteView(DeleteView):
 
 def busqueda(request):
     return render(request,"busqueda.html")
-
 
 def ModeloVista(request):
     busqueda = request.GET.get("buscar")

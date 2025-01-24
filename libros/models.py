@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 class Libro(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=30)
     autor = models.CharField(max_length=15)
     ISBN = models.CharField(max_length=13)

@@ -1,0 +1,26 @@
+
+.Thumbnail{
+    
+}
+
+
+.imagen {
+    position: relative;
+    width: 100%;
+    height: 460px;
+    background-image: url('{{ libro.imagen.url }}');
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.3s;
+}
+
+.imagen:hover {
+    opacity: 30%;
+}
+
+.content {
+    position: relative;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
