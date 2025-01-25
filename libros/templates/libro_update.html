@@ -3,11 +3,68 @@
 {% load static %}
 
 {% block libro_update %}
+<section class="container">
 
-<form action="" method="post"  enctype="multipart/form-data">{% csrf_token %}
-    {{ form.as_p }}
-  <div class="text-center">
-    <input type="submit" class="btn btn-outline-warning" value="Actualizar Libro" />
+  <h2 class="text-center text-decoration-underline link-offset-2">Actualizar Libro</h2>
+
+  <form class="d-flex justify-content-center mt-3" method="post" action=""
+    enctype="multipart/form-data"> {% csrf_token %}
+
+    <!--Imagen-->
+    <div class="mx-2" style="width: 18rem;">
+      <div class="card">
+        <img id="preview" src="#" alt="Vista previa de la imagen" class="img-thumbnail"
+          style=" max-width: 100%; min-height: 60vh;">
+      </div>
+      <div class="pt-2 px-5">
+        <label for="{{ form.imagen.id_for_label }}" class="d-flex justify-content-center fw-bold">Imagen</label>
+        {{ form.imagen }}
+      </div>
+    </div>
+
+    <!--Información-->
+    <div class="d-flex flex-column p-2 gap-2">
+
+      <div class="border-bottom">
+        {{ form.titulo }}
+      </div>
+
+      <div class="d-flex align-items-center gap-1">
+        <h6 class="mb-0">Autor:</h6>
+        <span class="badge rounded-pill text-bg-secondary fw-bold text-center" for="{{ form.autor.id_for_label }}">{{ form.autor }}</span>
+      </div>
+
+      <div class="px-5">
+        {{ form.ISBN }}
+      </div>
+
+      <div class="px-5">
+        {{ form.numero_Inventario }}
+      </div>
 
 
+      <div class="d-flex align-items-center justify-content-end">
+        <label for="{{ form.estado.id_for_label }}" class="fw-bold visually-hidden">Estado</label>
+        {{ form.estado }}
+      </div>
+
+      <button class="btn btn-success" type="submit" value="Crear">Actualizar</button>
+      <!-- Solucionar problema: Las modificacion se guardan de igual manera si elegimos Actualizar o Cancelar -->
+      <button class="btn btn-danger" type="submit" value="Crear" href="{{'libros'}}">Cancelar</button>
+    </div>
+  </form>
+</section>
+
+
+<script>
+  document.getElementById('formFileSm').onchange = function (event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      var output = document.getElementById('preview');
+      output.src = reader.result;
+      output.style.display = 'block';
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+</script>
 {% endblock %}

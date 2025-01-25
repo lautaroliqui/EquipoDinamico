@@ -1,6 +1,6 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import *
 from django.db.models import Q
 from django.views.generic import ListView
@@ -35,6 +35,17 @@ class LibroCreateView(CreateView):
     template_name = "libro_create.html"
     form_class = LibroForm
     success_url = reverse_lazy("libros")
+
+def libro_update(request, pk):
+    libro = get_object_or_404(Libro, pk=pk)
+    if request.method == 'POST':
+        form = LibroForm(request.POST, request.FILES, instance=libro)
+        if form.is_valid():
+            form.save()
+            return redirect('libros', pk=libro.pk)
+    else:
+        form = LibroForm(instance=libro)
+    return render(request, 'libro_update.html', {'form': form})
 
 class LibroUpdateView(UpdateView):
     model = Libro
