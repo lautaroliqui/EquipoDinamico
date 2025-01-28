@@ -1,5 +1,6 @@
 from typing import Any
 from django.db.models.query import QuerySet
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import *
 from django.db.models import Q
@@ -8,6 +9,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import LibroForm, PrestamoForm
 from django.urls import reverse_lazy
+from .models import Libro
 
 class LibroCreateView(CreateView):
     model = Libro
@@ -23,12 +25,14 @@ class LibroCreateView(CreateView):
 
 # Create your views here.
 
-def base(request):
-    return render(request,"libros/base.html")
-
-def libros(request):
-    Libros = Libro.objects.all()
-    return render(request,"libros.html", {'libros': Libros})
+def listaLibros(request):
+    query = request.GET.get('buscar')
+    if query:
+        libros = Libro.objects.filter(titulo__icontains=query) | Libro.objects.filter(autor__icontains=query)
+    else:
+        libros = Libro.objects.all()
+    
+    return render(request, 'libros.html', {'libros': libros, 'query': query})
 
 class LibroCreateView(CreateView):
     model = Libro
@@ -58,11 +62,7 @@ class LibroDeleteView(DeleteView):
     template_name = "libro_delete.html"
     success_url = reverse_lazy("libros")
         
-
-def busqueda(request):
-    return render(request,"busqueda.html")
-
-def ModeloVista(request):
+def Busqueda(request):
     busqueda = request.GET.get("buscar")
     libros = Libro.objects.all()
 

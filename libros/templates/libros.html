@@ -4,51 +4,46 @@
 Biblioteca Dinamica - Libros
 {% endblock %}
 {% block libro %}
-<h3 class="position-absolute">Lista de Libros</h3>
-<nav class="d-flex justify-content-end gap-2 mb-5">
-  {% if user.is_authenticated %}
-  <a href="{% url 'libro_create' %}" class="btn btn-outline-success">Crear Libro</a>
+
+<nav class="d-flex justify-content-between align-items-center gap-2 mb-3">
+  <h3>Lista de Libros</h3>
+
+  {% if query %}
+  <h3 class="text-center m-0">Resultados para: "{{ query }}"</h3>
   {% endif %}
-  <div class="d-flex align-items-center">
-    {% include "Components/busqueda.html" %}
+  <div class="d-flex gap-2">
+    {% if user.is_authenticated %}
+    <a href="{% url 'libro_create' %}" class="btn btn-success">Crear Libro</a>
+    {% endif %}
+    <div>
+      {% include "Components/busqueda.html" %}
+    </div>
   </div>
 </nav>
 
 <section class="container-fluid row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
   {% for libro in libros %}
   <div class="col p-2">
-
-    <div class="card" style="height: 460px;">
-
+    <div class="card contenedor" style="height: 460px;">
       <!--Thumbnail-->
-      <div class="img-thumbnail imagen" style="background-image: url('{{ libro.imagen.url }}');">
-      </div>
+      <div class="img-thumbnail imagen" style="background-image: url('{{ libro.imagen.url }}');"></div>
       <div class="content card-body d-flex flex-column align-items-center justify-content-center">
-
-        <div class="d-flex flex-column">
-          <h2 class="card-text text-wrap">{{ libro.titulo }}</h2>
-          <h5 class="card-text">Autor: {{ libro.autor }}</h5>
-          <h5 class="card-text text-capitalize">Estado: {{ libro.estado }}</h5>
-          <h5 class="card-text"> ISBN : {{ libro.ISBN }}</h5>
+        <!--Información-->
+          <h2>{{ libro.titulo }}</h2>
+          <h5>Autor: {{ libro.autor }}</h5>
+          <h5 class="text-capitalize">Estado: {{ libro.estado }}</h5>
+          <h5> ISBN : {{ libro.ISBN }}</h5>
           <div class="d-flex justify-content-center gap-3">
-            <h5 class="card-text">Inventario: {{ libro.numero_Inventario }}</h5>
-            <h5 class="card-text">Id: {{ libro.id }}</h5>
+            <h5>Inventario: {{ libro.numero_Inventario }}</h5>
+            <h5>Id: {{ libro.id }}</h5>
           </div>
-        </div>
-
-        <div class="">
-          <div class="d-flex justify-content-end">
+          <div class="text-center">
             <small class="text-body-secondary">Creado:&nbsp;</small>
-            <small class="d-flex justify-content-end">{{ libro.created }}</small>
-          </div>
-          <div class="d-flex justify-content-end">
+            <small>{{ libro.created }}</small>
             <small class="text-body-secondary">Actualizado:&nbsp;</small>
-            <small class="d-flex justify-content-end">{{ libro.updated }}</small>
+            <small>{{ libro.updated }}</small>
           </div>
-        </div>
-                
       </div>
-      
     </div>
 
     {% if user.is_authenticated %}
@@ -57,7 +52,6 @@ Biblioteca Dinamica - Libros
       <a href="{% url 'libro_delete' libro.id %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
     </div>
     {% endif %}
-    
   </div>
   {% endfor %}
 </section>

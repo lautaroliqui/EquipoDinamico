@@ -1,10 +1,17 @@
 
+.contenedor{
+    position: relative;
+    width: 300px;
+    height: 100%;
+    overflow: hidden;
+}
+
 .imagen {
     position: absolute;
     background-size: cover; 
     background-position: center;
     width: 100%;
-    height: 460px;
+    height: 100%;
 }
 
 .content {
@@ -14,6 +21,7 @@
     color: white;
     text-align: center;
     transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    height: 100%;
 }
 
 .content:hover{

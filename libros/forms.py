@@ -27,14 +27,17 @@ class LibroForm(forms.ModelForm):
                 'class': 'form-control custom-input',
                 'placeholder': 'ISBN'
             }),
-            'numero_Inventario': forms.NumberInput(attrs={
-                'class': 'form-control custom-input',
-                'placeholder': 'Número de Inventario'
-            }),
+            'numero_Inventario': forms.NumberInput(attrs={'class': 'form-control custom-input', 'placeholder': 'Número de Inventario'}),
             'imagen': forms.FileInput(attrs={
                 'class': 'form-control form-control-sm','type':'file','id': 'formFileSm'
             })
         }
+
+    def clean_numero_Inventario(self):
+        numero_Inventario = self.cleaned_data.get('numero_Inventario')
+        if numero_Inventario < 0:
+            raise forms.ValidationError('El número de inventario no puede ser negativo.')
+        return numero_Inventario
 
 
 class BusquedaLibroForm(forms.Form):

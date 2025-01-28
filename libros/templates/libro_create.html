@@ -5,23 +5,20 @@
 
   <h2 class="text-center text-decoration-underline link-offset-2">Creando Libro</h2>
 
-  <form class="d-flex justify-content-center mt-3" method="post" action="{% url 'libro_create' %}"
+  <form class="d-flex justify-content-center mt-3 mb-3" method="post" action="{% url 'libro_create' %}"
     enctype="multipart/form-data"> {% csrf_token %}
 
     <!--Imagen-->
-    <div class="mx-2" style="width: 18rem;">
-      <div class="card">
-        <img id="preview" src="#" alt="Vista previa de la imagen" class="img-thumbnail"
-          style=" max-width: 100%; min-height: 60vh;">
+    <div class="mx-2">
+      <label for="{{ form.imagen.id_for_label }}" class="d-flex justify-content-center fw-bold">Imagen</label>
+      <div class="card contenedor" style="height: 460px; max-width: 300px;">
+        <img id="preview" src="{% static '/img/ejemplo.webp' %}" alt="Vista previa de la imagen" class="img-thumbnail imagen">
       </div>
-      <div class="pt-2 px-5">
-        <label for="{{ form.imagen.id_for_label }}" class="d-flex justify-content-center fw-bold">Imagen</label>
-        {{ form.imagen }}
-      </div>
+      {{ form.imagen }}
     </div>
 
     <!--Información-->
-    <div class="d-flex flex-column p-2 gap-2">
+    <div class="d-flex flex-column p-2 gap-2 justify-content-center">
 
       <div class="border-bottom">
         {{ form.titulo }}
@@ -32,11 +29,11 @@
         <span class="badge rounded-pill text-bg-secondary fw-bold text-center" for="{{ form.autor.id_for_label }}">{{ form.autor }}</span>
       </div>
 
-      <div class="px-5">
+      <div>
         {{ form.ISBN }}
       </div>
 
-      <div class="px-5">
+      <div>
         {{ form.numero_Inventario }}
       </div>
 
@@ -47,10 +44,26 @@
       </div>
 
       <button class="btn btn-success" type="submit" value="Crear">Crear Libro</button>
-      <!--Boton Cancelar NO FUNCIONA-->
-      <button class="btn btn-danger" type="submit" value="Cancelar" href="{{'libros'}}">Cancelar</button>
+      <button class="btn btn-danger" type="button" value="Cancelar" onclick="window.location.replace('{% url 'libros' %}')">Cancelar</button>
     </div>
   </form>
+
+  <div>
+    {% if form.errors %}
+    <div class="alert alert-danger p-2">
+      <ul class="m-0">
+        {% for field in form %}
+          {% for error in field.errors %}
+            <li>{{ field.label }}: {{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
 </section>
 
 
