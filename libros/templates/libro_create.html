@@ -11,7 +11,7 @@
     <!--Imagen-->
     <div class="mx-2">
       <label for="{{ form.imagen.id_for_label }}" class="d-flex justify-content-center fw-bold">Imagen</label>
-      <div class="card contenedor" style="height: 460px; max-width: 300px;">
+      <div class="card contenedor" style="max-width: 300px; height: 460px; ">
         <img id="preview" src="{% static '/img/ejemplo.webp' %}" alt="Vista previa de la imagen" class="img-thumbnail imagen">
       </div>
       {{ form.imagen }}
