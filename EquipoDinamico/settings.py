@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Apk1',
     'libros',
-    'usuarios'
+    'usuarios',
+    'prestamos'
     
 ]
 

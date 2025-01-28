@@ -5,11 +5,11 @@ Biblioteca Dinamica - Libros
 {% endblock %}
 {% block libro %}
 
-<nav class="d-flex justify-content-between align-items-center gap-2 mb-3">
+<nav class="d-flex justify-content-between align-items-center mb-3">
   <h3>Lista de Libros</h3>
 
   {% if query %}
-  <h3 class="text-center m-0">Resultados para: "{{ query }}"</h3>
+  <h3 class="m-0">Resultados para: "{{ query }}"</h3>
   {% endif %}
   <div class="d-flex gap-2">
     {% if user.is_authenticated %}
@@ -21,9 +21,9 @@ Biblioteca Dinamica - Libros
   </div>
 </nav>
 
-<section class="container-fluid row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+<section class="container-fluid row row-cols-1 row-cols-sm-2 row-cols-md-4">
   {% for libro in libros %}
-  <div class="col p-2">
+  <div class="col">
     <div class="card contenedor" style="height: 460px;">
       <!--Thumbnail-->
       <div class="img-thumbnail imagen" style="background-image: url('{{ libro.imagen.url }}');"></div>

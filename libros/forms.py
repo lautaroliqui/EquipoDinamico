@@ -42,9 +42,3 @@ class LibroForm(forms.ModelForm):
 
 class BusquedaLibroForm(forms.Form):
     query = forms.CharField(label='Buscar libro', max_length=100)
-
-
-class PrestamoForm(forms.ModelForm):
-    class Meta:
-        model = Prestamo
-        fields = ['numero_de_pedido', 'nombre', 'apellido', 'libro_solicitado']

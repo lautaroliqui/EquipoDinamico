@@ -1,13 +1,8 @@
-from typing import Any
-from django.db.models.query import QuerySet
-from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import *
 from django.db.models import Q
-from django.views.generic import ListView
-from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .forms import LibroForm, PrestamoForm
+from .forms import LibroForm
 from django.urls import reverse_lazy
 from .models import Libro
 
@@ -74,27 +69,3 @@ def Busqueda(request):
 
 
     return render(request,"vistaLibros.html",{'libros': libros})
-
-
-def vistaPrestamo(request):
-
-    busqueda = request.GET.get("buscar")
-    prestamos = Prestamo.objects.all()
-
-    if busqueda:
-        prestamos = Prestamo.objects.filter(
-            Q(nombre__icontains = busqueda)
-            ).distinct()
-    return render(request,"vistaPrestamo.html",{"prestamos": prestamos})
-
-class PrestamoCreateView(CreateView):
-    model = Prestamo
-    template_name = "prestamo.html"
-    form_class = PrestamoForm
-    success_url = reverse_lazy("prestamo")
-
-
-class PrestamoDeleteView(DeleteView):
-    model = Prestamo
-    template_name = "prestamo_delete.html"
-    success_url = reverse_lazy("vistaPrestamo")

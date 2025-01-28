@@ -27,8 +27,7 @@ urlpatterns = [
     path("Apk1/", include("Apk1.urls")),
     path("libros/", include("libros.urls")),
     path("usuarios/", include("usuarios.urls")),
-
-    
+    path("prestamos/", include("prestamos.urls")),    
 ]
 
 if settings.DEBUG:
