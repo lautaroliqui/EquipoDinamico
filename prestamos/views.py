@@ -20,6 +20,11 @@ class PrestamoCreateView(CreateView):
     template_name = "prestamo_create.html"
     form_class = PrestamoForm
     success_url = reverse_lazy("prestamos")
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['numero_de_pedido'] = Prestamo.objects.count() + 1
+        return context
 
 class PrestamoUpdateView(UpdateView):
     model = Prestamo
@@ -30,4 +35,4 @@ class PrestamoUpdateView(UpdateView):
 class PrestamoDeleteView(DeleteView):
     model = Prestamo
     template_name = "prestamo_delete.html"
-    success_url = reverse_lazy("vistaPrestamo")
+    success_url = reverse_lazy("prestamos")

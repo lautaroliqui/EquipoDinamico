@@ -7,7 +7,7 @@ class PrestamoForm(forms.ModelForm):
         model = Prestamo
         fields = ['nombre', 'apellido', 'libro_solicitado']
         widgets = {
-            'nombre':forms.TextInput(attrs={'class':'form-control custom-input border-0 bg-transparent','placeholder':'Nombre'}),
-            'apellido':forms.TextInput(attrs={'class':'form-control custom-input border-0 bg-transparent','placeholder':'Nombre'}),
-            'libro_solicitado':forms.TextInput(attrs={'class':'form-control custom-input border-0 bg-transparent','placeholder':'Nombre'}),
+            'nombre':forms.TextInput(attrs={'class':'form-control custom-input border-0 bg-transparent text-center-placeholder text-center-input','placeholder':'Nombre'}),
+            'apellido':forms.TextInput(attrs={'class':'form-control custom-input border-0 bg-transparent text-center-placeholder text-center-input','placeholder':'Apellido'}),
+            'libro_solicitado':forms.TextInput(attrs={'class':'form-control custom-input border-0 bg-transparent text-center-placeholder text-center-input','placeholder':'Nombre del Libro'}),
         }

@@ -1,27 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block prestamo %}
-<h1>Solicitar un Prestamo</h1>
+<link rel="stylesheet" href="{% static 'stylePrestamo.css' %}">
+<h1 class="text-center">Solicitar un Prestamo</h1>
 
-<form method="post" action="{% url 'prestamo_create' %}" enctype="multipart/form-data">{% csrf_token %}
-  <div class="text-center border rounded p-2">
-      
-    <h5 class="border-bottom pb-1">Numero de Prestamo: {{ prestamo.numero_de_pedido }}</h5>
-    <div class="">
-      <h6>Nombre y Apellido:</h6>
-      <h6 class="d-flex text-wrap justify-content-center">{{ prestamo.apellido }} {{ prestamo.nombre }}</h6>
-    </div>
-    <h6 class="text-decoration-underline link-offset-2">Libro Solicitado:</h6>
-    <h5 class="d-flex text-wrap align-items-center justify-content-center">{{ prestamo.libro_solicitado }}</h5>
-  
-  {% if user.is_authenticated %}
-    <div class="btn-group gap-1  w-100">
-      <a href="{% url 'prestamo_update' prestamo.numero_de_pedido %}" class="btn btn-sm btn-outline-success">Editar</a>
-      <a href="{% url 'prestamo_delete' prestamo.numero_de_pedido %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
-    </div>
-  {% endif %}
+<div class="d-flex justify-content-center">
+  <div class="text-center border rounded p-2 d-flex w-25 justify-content-center">
+    <form method="post" action="{% url 'prestamo_create' %}" enctype="multipart/form-data">{% csrf_token %}
+      <h5 class="border-bottom pb-1">Numero de Prestamo: {{ numero_de_pedido }}</h5>
+
+      <h6>Apellido y Nombre:</h6>
+      <h6 class="d-flex text-wrap justify-content-center">{{ form.apellido }} {{ form.nombre }}</h6>
+
+      <h6 class="text-decoration-underline link-offset-2">Libro Solicitado:</h6>
+      <h5 class="d-flex text-wrap align-items-center justify-content-center">{{ form.libro_solicitado }}</h5>
+
+      <div class="btn-group gap-1  w-100">
+        <button class="btn btn-sm btn-success" type="submit" value="Crear">Crear Prestamo</button>
+        <button class="btn btn-danger" type="button" value="Cancelar"
+          onclick="window.location.replace('{% url 'prestamos' %}')">Cancelar</button>
+      </div>
+    </form>
+  </div>
 </div>
-    {{ form.as_p }}
-    <button type="submit" value="Crear">Solicitar Prestamo</button>
-  </form>
 {% endblock %}

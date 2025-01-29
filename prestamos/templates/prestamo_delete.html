@@ -1,16 +1,38 @@
-{% extends 'libros/base.html' %}
-
+{% extends 'base.html' %}
 {% load static %}
-
 {% block prestamo_delete %}
 
+<h1 class="text-center" style="color:#c34444;">Estas seguro que desea borrar? </h1>
 
-<form action="" method="post">{% csrf_token %}
-    <h1 style="color: red;">Estas seguro que desea borrar? </h1>
-    <button class="btn btn-outline-danger" type="submit" ><a>CONFIMAR</a></button>
-    <button class="btn btn-outline-success" type="submit" ><a href="{% url "vistaPrestamo"  %}">CANCELAR</a></button>
-  </form>      
+<div class="d-flex justify-content-center">
+  <div class="text-center border rounded p-2 d-flex w-30 justify-content-center">
+    <form method="post" action="{% url 'prestamo_create' %}" enctype="multipart/form-data">{% csrf_token %}
+      <h5 class="border-bottom pb-1">Numero de Prestamo: {{ prestamo.numero_de_pedido }}</h5>
 
+      <h6 class="text-decoration-underline link-offset-2">Apellido y Nombre:</h6>
+      <h6 class="d-flex text-wrap justify-content-center">{{ prestamo.apellido }} {{ prestamo.nombre }}</h6>
+
+      <h6 class="text-decoration-underline link-offset-2">Libro Solicitado:</h6>
+      <h5 class="d-flex text-wrap align-items-center justify-content-center">{{ prestamo.libro_solicitado }}</h5>
+
+      <div class="d-flex gap-1 p-2">
+        <div class="d-flex flex-column border rounded p-2">
+          <h6 class="text-decoration-underline link-offset-2">Creado</h6>
+          <small>{{ prestamo.created }}</small>
+        </div>
+        <div class="d-flex flex-column border rounded p-2">
+          <h6 class="text-decoration-underline link-offset-2">Actualizado</h6>
+          <small>{{ prestamo.updated }}</small>
+        </div>
+      </div>
+
+      <div class="btn-group gap-1 p-2 w-100">
+        <button class="btn btn-sm btn-outline-success" type="submit" value="Eliminar">&nbsp;&nbsp;Eliminar&nbsp;&nbsp;&nbsp;</button>
+        <button class="btn btn-outline-danger" type="button" value="Cancelar" onclick="window.location.replace('{% url 'prestamos' %}')">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 
 {% endblock %}

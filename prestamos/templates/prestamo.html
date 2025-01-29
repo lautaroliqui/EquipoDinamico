@@ -19,24 +19,35 @@
   </div>
 </nav>
 
-<section class="container-fluid row row-cols-1 row-cols-sm-2 row-cols-md-4 gap-4">
+<section class="container-fluid row row-cols-1 row-cols-sm-2 row-cols-md-4 gap-4 d-flex justify-content-center">
   {% for prestamo in prestamos %}
-    <div class="text-center border rounded p-2">
-        <h5 class="border-bottom pb-1">Numero de Prestamo: {{ prestamo.numero_de_pedido }}</h5>
-        <div class="">
-          <h6>Nombre y Apellido:</h6>
-          <h6 class="d-flex text-wrap justify-content-center">{{ prestamo.apellido }} {{ prestamo.nombre }}</h6>
-        </div>
-        <h6 class="text-decoration-underline link-offset-2">Libro Solicitado:</h6>
-        <h5 class="d-flex text-wrap align-items-center justify-content-center">{{ prestamo.libro_solicitado }}</h5>
-      
-      {% if user.is_authenticated %}
-        <div class="btn-group gap-1  w-100">
-          <a href="{% url 'prestamo_update' prestamo.numero_de_pedido %}" class="btn btn-sm btn-outline-success">Editar</a>
-          <a href="{% url 'prestamo_delete' prestamo.numero_de_pedido %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
-        </div>
-      {% endif %}
+  <div class="text-center border rounded p-2">
+    <h5 class="border-bottom pb-1">Numero de Prestamo: {{ prestamo.numero_de_pedido }}</h5>
+
+    <h6 class="text-decoration-underline link-offset-2">Apellido y Nombre:</h6>
+    <h6 class="d-flex text-wrap justify-content-center">{{ prestamo.apellido }} {{ prestamo.nombre }}</h6>
+
+    <h6 class="text-decoration-underline link-offset-2">Libro Solicitado:</h6>
+    <h5 class="d-flex text-wrap align-items-center justify-content-center">{{ prestamo.libro_solicitado }}</h5>
+    
+    <div class="d-flex gap-1 p-2">
+      <div class="d-flex flex-column border rounded p-2">
+        <h6 class="text-decoration-underline link-offset-2">Creado</h6>
+        <small>{{ prestamo.created }}</small>
+      </div>
+      <div class="d-flex flex-column border rounded p-2">
+        <h6 class="text-decoration-underline link-offset-2">Actualizado</h6>
+        <small>{{ prestamo.updated }}</small>
+      </div>
     </div>
+
+    {% if user.is_authenticated %}
+    <div class="d-flex gap-1 justify-content-center">
+      <a href="{% url 'prestamo_update' prestamo.numero_de_pedido %}" class="btn btn-sm btn-outline-success flex-fill">&nbsp;&nbsp;Editar&nbsp;&nbsp;</a>
+      <a href="{% url 'prestamo_delete' prestamo.numero_de_pedido %}" class="btn btn-sm btn-outline-danger flex-fill">Eliminar</a>
+    </div>
+    {% endif %}
+  </div>
   {% endfor %}
 </section>
 {% endblock %}
