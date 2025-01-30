@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block prestamo %}
+{% block prestamo_create %}
 <link rel="stylesheet" href="{% static 'stylePrestamo.css' %}">
 <h1 class="text-center">Solicitar un Prestamo</h1>
 
 <div class="d-flex justify-content-center">
   <div class="text-center border rounded p-2 d-flex w-25 justify-content-center">
     <form method="post" action="{% url 'prestamo_create' %}" enctype="multipart/form-data">{% csrf_token %}
-      <h5 class="border-bottom pb-1">Numero de Prestamo: {{ numero_de_pedido }}</h5>
+      <h5 class="border-bottom pb-1">Numero de Prestamo: <small>Automatico</small></h5>
 
       <h6>Apellido y Nombre:</h6>
       <h6 class="d-flex text-wrap justify-content-center">{{ form.apellido }} {{ form.nombre }}</h6>

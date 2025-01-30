@@ -8,8 +8,8 @@ class Libro(models.Model):
     numero_Inventario = models.IntegerField()
     estado = models.CharField(max_length=10)
     imagen = models.ImageField(upload_to="libros")
-    created = models.DateTimeField(auto_now=True)
-    updated = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):

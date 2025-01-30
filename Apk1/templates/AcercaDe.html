@@ -1,64 +1,43 @@
-{% extends 'Apk1/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
-
-
 {% block titulo %}
-
-Biblioteca Dinamica-AcercaDe
-
+Biblioteca Dinamica - Acerca De
 {% endblock %}
-
-{% block contenido1 %}
-
-<h1>Acerca De</h1>
-
-{% endblock %}
-
 
 {% block AcercaDe %}
 
-    <!--Article-->
-    <article class="container-fluid">
+<section class="container">
 
-            <h1>Equipo Dinamico</h1>
+  <h1 class="text-center">Equipo Dinamico</h1>
 
-            <section class="container marketing">  
-                <div class="row">
-                    <div class="col-lg-4">
-                      
-                      <img class="bd-placeholder-img rounded-circle" src="/static/img/Esteban.jpeg"width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
-                      <h2 class="fw-normal">Esteban Perez Malinar</h2>
-                      <span><u>Correo Electronico:</u> perezmalinaresteban@gmail.com</span><br>
-                      <span><u>Fecha de Nacimiento:</u> 03/07/2004</span><br>
-                      <span><u>Numero de Telefono:</u> 3888-440044</span>
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-lg-4">
-                      <img class="bd-placeholder-img rounded-circle" src="/static/img/Lautaro.jpeg" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
-                      <h2 class="fw-normal font fs-3 ">Lautaro Emmanuel Liquitay Linares</h2>
-                      <span><u>Correo Electronico:</u> lautaroemanuellinares@gmail.com</span><br>
-                      <span><u>Fecha de Nacimiento:</u> 22/03/2005</span><br>
-                      <span><u>Numero de Telefono:</u> 388-5237463</span>
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-lg-4">
-                      <img class="bd-placeholder-img rounded-circle" src="/static/img/Dario.jpeg" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img>
-                      <h2 class="fw-normal">Dario Mauricio Ruiz</h2>
-                      <span><u>Correo Electronico:</u> darpro99@gmail.com</span><br>
-                      <span><u>Fecha de Nacimiento:</u> 05/08/1998</span><br>
-                      <span><u>Numero de Telefono:</u> 388-4591111</span>
-                    </div><!-- /.col-lg-4 -->
-                  </div>             
-            </section>
-    </article>
-    <br><hr>
-    
-    
-    <article>
-        <h1>Propósito del team</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit est penatibus condimentum vel metus, tortor varius duis himenaeos magnis. Eros gravida imperdiet phasellus tristique nisl fames habitasse vitae, duis blandit interdum penatibus mus proin netus metus, inceptos litora quis quisque praesent ac lacus. Vel integer consequat morbi senectus gravida dapibus fusce libero, montes lectus interdum maecenas commodo vitae luctus eleifend, auctor laoreet felis himenaeos aptent ut aliquam. Gravida rhoncus mattis blandit magnis tortor, commodo quisque interdum aliquet, taciti dignissim porttitor platea.</p>
-        <p>Mollis placerat iaculis lacus augue nostra feugiat montes porta sodales euismod, semper dignissim scelerisque pharetra sociosqu cubilia bibendum quisque dapibus, primis lobortis nam et erat nisl leo tempor at. Praesent morbi eu vitae lobortis ad cras vivamus, nam porta rutrum leo facilisi curabitur diam, etiam arcu quis eleifend tellus ut. Nulla justo mattis rhoncus turpis nam bibendum aenean taciti tellus, risus cursus egestas felis faucibus nullam dictum mus, pulvinar dis platea massa ridiculus libero at vel. Ac habitasse ad pulvinar conubia malesuada luctus fames aptent neque vulputate, gravida proin suspendisse pretium vivamus auctor odio vitae sociis risus, duis ligula sem purus aenean id blandit eros posuere.</p>
+  <article class="d-flex justify-content-between text-center gap-2 mt-3 mb-5">
+    {% block Esteban %}
+    {% include "Components/Esteban.html" %}
+    {% endblock %}
 
-        <div style="display: flex; justify-content: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/wIlPHih1IWI?si=1dGLvmIGCEt6gpGe" title="YouTube: Bibliote de la Facultad de Ingenieria" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    </article>
-    <br><hr>
+    {% block Lautaro %}
+    {% include "Components/Lautaro.html" %}
+    {% endblock %}
 
+    {% block Dario %}
+    {% include "Components/Dario.html" %}
+    {% endblock %}
+  </article>
+
+  <article class="m-5">
+    <h1 class="text-center">Propósito del team</h1>
+    <div class="fw-semibold">
+      <p>Este proyecto se centró en desarrollar una aplicación web para la administración de una biblioteca, combinando
+        las bases de <span style="color:#F16529;">HTML</span>, <span style="color:#2965f1;">CSS</span>, el framework <span style="color: #1BC178;">Django</span> y <span style="color:#712cf9;">Bootstrap</span>  para el diseño. El principal objetivo fue crear una plataforma web funcional que permita gestionar los préstamos y la disponibilidad de libros en una biblioteca de manera eficiente y fácil de usar.</p>
+      
+      Este trabajo fue realizado como parte de un proyecto académico en la facultad, involucrando a tres integrantes. La
+      finalidad era aplicar y consolidar conocimientos adquiridos en el curso, abarcando tanto el frontend como el backend
+      del desarrollo web.
+      </p>
+      <p>Este proyecto logró integrar y aplicar de manera efectiva tecnologías frontend y backend, resultando en una
+        aplicación web bien diseñada para la administración de una biblioteca. Fue una excelente oportunidad
+        para poner en práctica habilidades técnicas y de colaboración en equipo.</p>
+    </div>
+  </article>
+</section>
 {% endblock %}

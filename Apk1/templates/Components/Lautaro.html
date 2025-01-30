@@ -1,0 +1,29 @@
+{% block Lautaro %}
+<div class="border border-2 rounded p-2">
+    <!--Imagen-->
+    <div class="p-2">
+        <img class="rounded-circle" src="/static/img/Lautaro.jpeg" width="140" height="140"
+            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
+            focusable="false">
+    </div>
+    <!--Contacto-->
+    <div class="d-flex flex-column">
+        <h2 class="fw-normal fs-3 m-0 ">Lautaro Emmanuel</h2>
+        <h2>Liquitay Linares</h2>
+        <span>{% include "Icons/ot.html" %} lautaroemanuellinares@gmail.com</span>
+        <div class="d-flex justify-content-center gap-4 m-1">
+            <span>{% include "Icons/phone.html" %} 388-5237463</span>
+            <span>{% include "Icons/calendar.html" %} 22/03/2005</span>
+        </div>
+    </div>
+    <!--Biografia-->
+    <div class="p-2">
+        <p>Lautaro es un desarrollador dedicado que se especializa en <span style="color: #ff0C; ">Desarrollo Web</span>
+            . Tiene un ojo agudo para los detalles y está comprometido con la creación de aplicaciones fáciles de usar.
+        </p>
+        <p>En este trabajo, además de colaborar con <span class="text-decoration-underline link-offset-1" style="color:#1BC178">Ruiz</span> ,
+            se enfoco ampliamente en el <span class="text-decoration-underline link-offset-1"
+                style="color: #ff0C;">Diseño</span> de nuestra aplicación.</p>
+    </div>
+</div>
+{% endblock %}

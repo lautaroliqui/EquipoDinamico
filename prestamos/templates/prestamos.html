@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block prestamo %}
+{% block titulo %}
+Biblioteca Dinamica - Prestamos
+{% endblock %}
+{% block prestamos %}
 
 <nav class="d-flex justify-content-between align-items-center mb-3">
   <h3>Lista de Prestamos</h3>
@@ -14,7 +17,7 @@
     <a href="{% url 'prestamo_create' %}" class="btn btn-success">Solicitar Prestamo</a>
     {% endif %}
     <div>
-      {% include "Components/busqueda.html" %}
+      {% include "busquedaPrestamo.html" %}
     </div>
   </div>
 </nav>

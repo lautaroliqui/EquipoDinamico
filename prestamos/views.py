@@ -3,28 +3,24 @@ from django.urls import reverse_lazy
 from .forms import PrestamoForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Prestamo
+from django.db.models import Q
 
 # Create your views here.
-
-def listaPrestamos(request):
-    query = request.GET.get('buscar')
-    if query:
-        prestamos = Prestamo.objects.filter(nombre__icontains=query) | Prestamo.objects.filter(apellido__icontains=query)
-    else:
-        prestamos = Prestamo.objects.all()
+def Prestamos(request): 
+    busqueda = request.GET.get("buscar") 
+    prestamos = Prestamo.objects.all() 
+    if busqueda: prestamos = Prestamo.objects.filter( 
+        Q(nombre__icontains = busqueda) | 
+        Q(apellido__icontains = busqueda) | 
+        Q(libro_solicitado__icontains = busqueda) ).distinct() 
     
-    return render(request, 'prestamo.html', {'prestamos': prestamos, 'query': query})
+    return render(request,"prestamos.html",{'prestamos': prestamos, 'query': busqueda})
 
 class PrestamoCreateView(CreateView):
     model = Prestamo
     template_name = "prestamo_create.html"
     form_class = PrestamoForm
     success_url = reverse_lazy("prestamos")
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['numero_de_pedido'] = Prestamo.objects.count() + 1
-        return context
 
 class PrestamoUpdateView(UpdateView):
     model = Prestamo

@@ -6,5 +6,5 @@ class Prestamo(models.Model):
     nombre = models.CharField(max_length=20)
     apellido = models.CharField(max_length=20)
     libro_solicitado = models.CharField(max_length=30)
-    created = models.DateTimeField(auto_now=True)
-    updated = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)

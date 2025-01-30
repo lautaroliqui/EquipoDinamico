@@ -1,0 +1,31 @@
+{% block Dario %}
+<div class="border border-2 rounded p-2">
+    <!--Imagen-->
+    <div class="p-2">
+        <img class="rounded-circle" src="/static/img/Dario.jpeg" width="140" height="140"
+            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
+            focusable="false">
+    </div>
+    <!--Contacto-->
+    <div class="d-flex flex-column">
+        <h2 class="fw-normal fs-3 m-0">Dario Mauricio </h2>
+        <h2>Ruiz</h2>
+        <span>{% include "Icons/ot.html" %} darpro99@gmail.com</span>
+        <div class="d-flex justify-content-center gap-4 m-1">
+            <span>{% include "Icons/phone.html" %} 388-4591111</span>
+            <span>{% include "Icons/calendar.html" %} 05/08/1998</span>
+        </div>
+    </div>
+    <!--Biografia-->
+    <div class="p-2">
+        <p>Dario es un programador experimentado con experiencia en desarrollo <span
+                style="color: #ff0C;">Front-end</span> y <span style="color: #1bc178;">Back-end</span>. Le apasiona
+            aprender nuevas tecnologías y mejorar su oficio.</p>
+        <p>En este trabajo, se enfoco ampliamente en las configuraciones de <span
+                class="text-decoration-underline link-offset-1" style="color: #1bc178 ;">modelos</span>, <span
+                class="text-decoration-underline link-offset-1" style="color: #1bc178 ;">views</span>, y de <span
+                class="text-decoration-underline link-offset-1" style="color: #F16529">URL</span>. Además de haber colaborado con <span class="text-decoration-underline link-offset-1" style="color: #ff0C;">Lautaro</span> para
+            el diseño de la aplicación.</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% block Esteban%}
+<div class="border border-2 rounded p-2">
+    <!--Imagen-->
+    <div class="p-2">
+        <img class="rounded-circle" src="/static/img/Esteban.jpeg" width="140" height="140"
+            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
+            focusable="false">
+    </div>
+
+    <!--Contacto-->
+    <div class="d-flex flex-column">
+        <h2 class="fw-normal fs-3 m-0">Esteban</h2>
+        <h2>Perez Malinar</h2>
+        <span>{% include "Icons/ot.html" %} perezmalinaresteban@gmail.com</span>
+        <div class="d-flex justify-content-center gap-4 m-1">
+            <span>{% include "Icons/phone.html" %} 3888-440044</span>
+            <span>{% include "Icons/calendar.html" %} 03/07/2004</span>
+        </div>
+        <!--Biografia-->
+        <div class="p-2">
+            <p>Esteban es un desarrollador apasionado por desarrollar <span style="color:#0cb6f9;">Programas
+                    Innovadores</span>. Disfruta trabajando en proyectos desafiantes y siempre está buscando nuevas
+                formas de mejorar sus habilidades.</p>
+            <p>En este trabajo, se enfoco ampliamente en los cuidados en la <span
+                    class="text-decoration-underline link-offset-1">administracion</span> y <span
+                    class="text-decoration-underline link-offset-1">manipulacion</span> del <span
+                    style="color: #31ff1dcc;">Repositorio</span> de nuestra aplicación.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
