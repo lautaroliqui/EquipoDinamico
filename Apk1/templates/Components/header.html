@@ -7,11 +7,12 @@
 
         <div class="p-1 me-2"><img src="/static/libro.webp" class="  " alt="Librazo" height="35">
         </div>
-        
-        <a class="navbar-brand fs-6" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
-        <a class="navbar-brand fs-6" href="{% url 'libros' %}">Libros</a>
-        <a class="navbar-brand fs-6" href="{% url 'prestamos' %}">Prestamos</a>
-        <a class="navbar-brand fs-6" href="{% url 'AcercaDe' %}">Acerca De</a>
+        <nav class="d-flex">
+            <a class="navbar-brand fs-6 nav-link" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
+            <a class="navbar-brand fs-6 nav-link" href="{% url 'libros' %}">Libros</a>
+            <a class="navbar-brand fs-6 nav-link" href="{% url 'prestamos' %}">Prestamos</a>
+            <a class="navbar-brand fs-6 nav-link" href="{% url 'AcercaDe' %}">Acerca De</a>
+        </nav>
 
     </nav>
 
