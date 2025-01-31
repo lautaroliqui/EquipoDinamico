@@ -1,68 +1,45 @@
 {% block header %}
 <!--Header-->
-<header class="navbar border-bottom mb-3 p-1">
+<header class="navbar border-bottom mb-3 p-1 justify-content-between">
 
     <!-- Navbar content -->
-    <nav class="d-flex align-items-center gap-1">
-
-        <div class="p-1 me-2"><img src="/static/libro.webp" class="  " alt="Librazo" height="35">
+    
+        <div class="d-flex gap-2">
+            <img src="/static/libro.webp" class="m-2" alt="Librazo" height="35">
+            <nav class="d-flex align-items-center">
+                <a class="navbar-brand fs-sm-6 fs-xxl-1 nav-link" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
+                <a class="navbar-brand fs-sm-6 fs-xxl-1 nav-link" href="{% url 'libros' %}">Libros</a>
+                <a class="navbar-brand fs-sm-6 fs-xxl-1 nav-link" href="{% url 'prestamos' %}">Prestamos</a>
+                <a class="navbar-brand fs-sm-6 fs-xxl-1 nav-link" href="{% url 'AcercaDe' %}">Acerca De</a>
+            </nav>
         </div>
-        <nav class="d-flex">
-            <a class="navbar-brand fs-6 nav-link" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
-            <a class="navbar-brand fs-6 nav-link" href="{% url 'libros' %}">Libros</a>
-            <a class="navbar-brand fs-6 nav-link" href="{% url 'prestamos' %}">Prestamos</a>
-            <a class="navbar-brand fs-6 nav-link" href="{% url 'AcercaDe' %}">Acerca De</a>
-        </nav>
 
-    </nav>
-
-    <nav class=" navbar nav justify-content-end">
-        <form class="d-flex" role="search">
-
-            {% if user.is_authenticated %}
-            <div class="d-flex align-items-center border border-2 rounded p-1 gap-1 me-2 border-info">
-                <span>Log:</span>
-                <span class="fs-6  text-info text-capitalize">{{user.username}}</span>
-            </div>
-
-            <a href="{% url 'registro' %}" class="btn btn-outline-warning me-md-2">Registrar</a>
-            <a href="{% url 'salir' %}" class="btn btn-outline-danger">Salir</a>
-
-            {% else %}
-
-            <a href="{% url 'ingresar' %}" class="btn btn-outline-success me-md-2">Ingresar</a>
-            <a href="{% url 'registro' %}" class="btn btn-outline-warning">Registrar</a>
-
-            {% endif %}
-        </form>
-    </nav>
-    <!--
-        <nav class="navbar border-bottom border-body">
-            <div class="container-fluid">
-                Nav Toggle Button For Responsive Function
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                Nav General
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    Nav Img
-                    <a class="navbar-brand" href="#">
-
-                    </a>
-                    <div class="navbar-nav p-2 flex-grow-1">
-                    Nav Pages
-                    </div>
-
-                    Nav Busqueda
-                    
-
-
+        <div class="d-flex gap-2">
+            <form class="d-flex gap-1" role="search">
+                {% if user.is_authenticated %}
+                <div class="d-flex align-items-center border border-2 rounded p-1 gap-1 border-success">
+                    <span>Log:</span>
+                    <span class="fs-6 text-success text-capitalize fw-bold">{{user.username}}</span>
                 </div>
-            </div>
-        </nav>
-        -->
-
+                <a href="{% url 'salir' %}" class="btn btn-outline-danger fw-bold">Salir</a>
+                
+                {% else %}
+                <a href="{% url 'ingresar' %}" class="btn btn-outline-success me-md-2">Ingresar</a>
+                <a href="{% url 'registro' %}" class="btn btn-outline-warning">Registrar</a>
+                {% endif %}
+            </form>
+            <button id="dl-icon" class="btn rounded-fill">
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/>
+                    <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/>
+                </svg>
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/>
+                </svg>
+            </button>
+        </div>
+    
 </header>
 {% endblock %}

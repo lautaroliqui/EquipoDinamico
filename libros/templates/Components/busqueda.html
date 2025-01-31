@@ -1,9 +1,8 @@
-{% block herramientaBusqueda %}
-<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-md-0 mw-100 navbar-search" method="GET">
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-md-0 mw-100 navbar-search" method="GET" action="{% url 'libros' %}">
     {% csrf_token %}
     <div class="input-group">
         <div class="input-group-text">{% include "Icons/book.html" %}</div>
-        <input class="form-control" id="buscar" name="buscar" type="search" placeholder="Buscar..." aria-label="Search" value=""
+        <input class="form-control" id="buscar" name="buscar" type="search" placeholder="Buscar Libro..." aria-label="Search" value=""
             type="text">
         <button type="submit" id="boton-buscar" class="btn btn-success">
         {% if request.GET.buscar %}
@@ -11,7 +10,6 @@
         {% else %}
             Buscar
         {% endif %}</button>
-        
     </div>
 </form>
 
@@ -29,4 +27,3 @@
         });
     </script>
 {% endif %}
-{% endblock %}

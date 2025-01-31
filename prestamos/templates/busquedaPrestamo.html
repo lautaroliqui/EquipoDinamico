@@ -2,7 +2,7 @@
 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-md-0 mw-100 navbar-search" method="GET" action="{% url 'prestamos' %}">
     <div class="input-group">
         <div class="input-group-text">{% include "Icons/iconPrestamo.html" %}</div>
-        <input class="form-control" id="buscarPrestamo" name="buscar" type="search" placeholder="Buscar..." aria-label="Search" value="">
+        <input class="form-control" id="buscarPrestamo" name="buscar" type="search" placeholder="Buscar Prestamo..." aria-label="Search" value="">
         <button type="submit" id="boton-buscar" class="btn btn-success">
         {% if query %}
             Volver

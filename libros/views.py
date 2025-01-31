@@ -68,4 +68,4 @@ def Busqueda(request):
         ).distinct()
 
 
-    return render(request,"vistaLibros.html",{'libros': libros})
+    return render(request,"libros.html",{'libros': libros})
