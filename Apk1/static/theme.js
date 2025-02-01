@@ -1,20 +1,21 @@
 // static/js/theme.js
 const temaOscuro = () => {
     document.querySelector("body").setAttribute("data-bs-theme", "dark");
-    document.querySelector("#sun-icon").style.display = "inline";
     document.querySelector("#moon-icon").style.display = "none";
-    document.querySelector("#imagenDeFondo").style.opacity = 0.3;
+    document.querySelector("#sun-icon").style.display = "inline";
+    localStorage.setItem("theme", "dark");
 }
 
 const temaClaro = () => {
     document.querySelector("body").setAttribute("data-bs-theme", "light");
     document.querySelector("#moon-icon").style.display = "inline";
     document.querySelector("#sun-icon").style.display = "none";
-    document.querySelector("#imagenDeFondo").style.opacity = 0.5;
+    localStorage.setItem("theme", "light");
 }
 
 const inicializarTema = () => {
-    if (document.querySelector("body").getAttribute("data-bs-theme") === "dark") {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
         temaOscuro();
     } else {
         temaClaro();
@@ -35,3 +36,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.querySelector("#dl-icon").addEventListener("click", cambiarTema);
 });
 
+document.querySelector(".menu-btn").addEventListener("click",()=>{
+    document.querySelector(".nav-menu").classList.toggle("show");
+});

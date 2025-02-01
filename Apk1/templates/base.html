@@ -10,10 +10,11 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="{% static '/style.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="/static/stylesHeader.css">
+    <link rel="stylesheet" href="/static/responsive.css">
     <title>{% block titulo %}{% endblock %}</title>
 </head>
 
-<body class="container-xxl" data-bs-theme="dark"
+<body class="container-fluid" data-bs-theme="dark"
     style="font-family: Bahnschrift , system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
     <!--Header-->
     {% block header %}
@@ -73,5 +74,6 @@
     {% include "Components/footer.html" %}
     {% endblock %}
     <script src="{% static 'theme.js' %}"></script>
+    <script src="{% static 'inicio.js' %}"></script>
 </body>
 </html>

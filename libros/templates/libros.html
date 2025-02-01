@@ -4,55 +4,59 @@
 Biblioteca Dinamica - Libros
 {% endblock %}
 {% block libro %}
-
-<nav class="d-flex justify-content-between align-items-center mb-3">
-  <h3>Lista de Libros</h3>
-
-  {% if query %}
-  <h3 class="m-0">Resultados para: "{{ query }}"</h3>
-  {% endif %}
-  <div class="d-flex gap-2">
-    {% if user.is_authenticated %}
-    <a href="{% url 'libro_create' %}" class="btn btn-success">Crear Libro</a>
+<section class="container-fluid border border-3">
+  <nav class="d-flex justify-content-between align-items-center p-2">
+    <h3 class="m-0 fs-md_lista">Lista de Libros</h3>
+  
+    {% if query %}
+    <h3 class="m-0">Resultados para: "{{ query }}"</h3>
     {% endif %}
-    <div>
-      {% include "Components/busqueda.html" %}
-    </div>
-  </div>
-</nav>
-
-<section class="container-fluid row row-cols-1 row-cols-sm-2 row-cols-md-4">
-  {% for libro in libros %}
-  <div class="col">
-    <div class="card contenedor" style="height: 460px;">
-      <!--Thumbnail-->
-      <div class="img-thumbnail imagen" style="background-image: url('{{ libro.imagen.url }}');"></div>
-      <div class="content card-body d-flex flex-column align-items-center justify-content-center">
-        <!--Información-->
-          <h2>{{ libro.titulo }}</h2>
-          <h5>Autor: {{ libro.autor }}</h5>
-          <h5 class="text-capitalize">Estado: {{ libro.estado }}</h5>
-          <h5> ISBN : {{ libro.ISBN }}</h5>
-          <div class="d-flex justify-content-center gap-3">
-            <h5>Inventario: {{ libro.numero_Inventario }}</h5>
-            <h5>Id: {{ libro.id }}</h5>
-          </div>
-          <div class="text-center">
-            <small class="text-body-secondary">Creado:&nbsp;</small>
-            <small>{{ libro.created }}</small>
-            <small class="text-body-secondary">Actualizado:&nbsp;</small>
-            <small>{{ libro.updated }}</small>
-          </div>
+    <div class="d-flex gap-2">
+      {% if user.is_authenticated %}
+      <a href="{% url 'libro_create' %}" class="btn btn-success">Crear Libro</a>
+      {% endif %}
+      <div>
+        {% include "Components/busqueda.html" %}
       </div>
     </div>
-
-    {% if user.is_authenticated %}
-    <div class="btn-group d-flex justify-content-start gap-1 mt-2">
-      <a href="{% url 'libro_update' libro.id %}" class="btn btn-sm btn-outline-success">Editar</a>
-      <a href="{% url 'libro_delete' libro.id %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
-    </div>
-    {% endif %}
-  </div>
-  {% endfor %}
+  </nav>
+  
+  <section class="row row-cols-1 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-auto d-flex justify-content-center border border-2 gap-3">
+    {% for libro in libros %}
+    <article class="col p-3 d-flex align-items-center justify-content-center">
+      <!--Contenido-->
+      <div class="d-flex flex-column">
+        <div class="contenedor" style="height: 460px;">
+          <!--Thumbnail-->
+          <div class="img-thumbnail imagen" style="background-image: url('{{ libro.imagen.url }}');"></div>
+          <!--Información-->
+          <div class="content d-flex flex-column align-items-center justify-content-center">
+            <h2>{{ libro.titulo }}</h2>
+            <h5>Autor: {{ libro.autor }}</h5>
+            <h5 class="text-capitalize">Estado: {{ libro.estado }}</h5>
+            <h5> ISBN : {{ libro.ISBN }}</h5>
+            <div class="d-flex justify-content-center gap-3">
+              <h5>Inventario: {{ libro.numero_Inventario }}</h5>
+              <h5>Id: {{ libro.id }}</h5>
+            </div>
+            <div class="text-center d-flex flex-column">
+              <small class="text-body-secondary">Creado:&nbsp;<small>{{ libro.created }}</small></small>
+              <small class="text-body-secondary">Actualizado:&nbsp;<small>{{ libro.updated }}</small></small>
+              
+            </div>
+          </div>
+        </div>
+        <!--Interaccion-->
+        {% if user.is_authenticated %}
+        <div class="btn-group d-flex justify-content-center align-items-center gap-1 p-1">
+          <a href="{% url 'libro_update' libro.id %}" class="btn btn-sm btn-outline-success ">Editar</a>
+          <a href="{% url 'libro_delete' libro.id %}" class="btn btn-sm btn-outline-danger ">Eliminar</a>
+        </div>
+        {% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </section>
 </section>
+
 {% endblock %}
