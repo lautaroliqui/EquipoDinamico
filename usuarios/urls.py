@@ -3,7 +3,7 @@ from usuarios import views
 from .views import *
 
 urlpatterns =[
-    path("registro/", views.registro, name="registro"),
-    path("ingresar/", views.ingresar, name="ingresar"),
-    path("salir/", views.salir, name = "salir"),
+    path("Registro/", views.registro, name="registro"),
+    path("Ingresar/", views.ingresar, name="ingresar"),
+    path("Salir/", views.salir, name = "salir"),
 ]

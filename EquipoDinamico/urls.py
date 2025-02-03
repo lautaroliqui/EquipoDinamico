@@ -24,10 +24,10 @@ from Apk1 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.inicio),
-    path("Apk1/", include("Apk1.urls")),
-    path("libros/", include("libros.urls")),
-    path("usuarios/", include("usuarios.urls")),
-    path("prestamos/", include("prestamos.urls")),    
+    path("Biblioteca/", include("Apk1.urls")),
+    path("Bibliteca/", include("libros.urls")),
+    path("Biblioteca/", include("usuarios.urls")),
+    path("Biblioteca/", include("prestamos.urls")),    
 ]
 
 if settings.DEBUG:

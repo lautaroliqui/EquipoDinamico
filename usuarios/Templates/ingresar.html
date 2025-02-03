@@ -5,14 +5,9 @@
 {% block ingresar %}
 
 {% if user.is_authenticated %}
-
 <section class="d-flex justify-content-center">
-
     <h2>Esta logueado actualmente</h2>
-
 </section>
-
-
 {% else %}
 
 <section class="container-fluid d-flex flex-column justify-content-center align-items-center p-2">
@@ -21,9 +16,7 @@
         <h2 class="link-offset-2 text-decoration-underline">Iniciar Sesión</h2>
     </div>
 
-    <form action="{% url 'ingresar' %}" method="POST">
-
-        {% csrf_token %}
+    <form action="{% url 'ingresar' %}" method="POST">{% csrf_token %}
 
         <div class="d-flex flex-column justify-content-center">
             <!--Username-->

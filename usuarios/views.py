@@ -1,31 +1,28 @@
 from django.shortcuts import redirect, render
 from django.shortcuts import render
-from usuarios.models import CustomAuthenticationForm
-from .forms import UsuarioNuevo
+from .forms import *
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.models import User
 
 # Create your views here.
 
 def registro(request):
     if request.method == "POST":
-        form = UsuarioNuevo(request.POST)
+        form = registrarUsuarioForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data.get("username")
             form.save()
-            return render(request, "registro.html", {"mensaje": (f"El usuario {username} creado correctamente")})
+            return redirect("inicio")
         else:
-            return render(request, "registro.html", {"form": form, "mensaje": "Error al crear el usuario"})
+            return render(request, "registro.html", {"form": form, "mensajeIncorrecto": "Error al crear el usuario"})
     else:
-        form= UsuarioNuevo()
+        form = registrarUsuarioForm()
     return render(request, "registro.html", {"form": form})
 
 
 def ingresar(request):
     if request.method == "POST":
-        form = CustomAuthenticationForm(request,data=request.POST)
+        form = ingresarForm(request,data=request.POST)
         if form.is_valid():
             usuario = form.cleaned_data.get("username")
             clave = form.cleaned_data.get("password")
@@ -44,7 +41,7 @@ def ingresar(request):
                 "form": form
             })
     else:
-        form = CustomAuthenticationForm()
+        form = ingresarForm()
          
     return render(request, "ingresar.html", {
         "form": form
