@@ -1,5 +1,5 @@
 """
-URL configuration for EquipoDinamico project.
+URL configuration for BiblitoecaDinamica project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -17,14 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-from Apk1 import views
+from Biblioteca import views
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.inicio),
-    path("Biblioteca/", include("Apk1.urls")),
+    path("Biblioteca/", include("Biblioteca.urls")),
     path("Bibliteca/", include("libros.urls")),
     path("Biblioteca/", include("usuarios.urls")),
     path("Biblioteca/", include("prestamos.urls")),    

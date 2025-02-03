@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-from Apk1 import views
+from Biblioteca import views
 from django.contrib.auth.views import LogoutView
 
 
