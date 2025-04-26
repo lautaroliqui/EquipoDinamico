@@ -1,0 +1,14 @@
+# Ignorar base de datos
+*.sqlite3
+
+# Ignorar archivos de entorno
+*.env
+
+# Ignorar carpetas generadas automáticamente
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos de configuración de editores
+.vscode/
+*.code-workspace
