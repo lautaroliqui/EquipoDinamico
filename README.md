@@ -77,7 +77,9 @@ El proyecto logró integrar y aplicar de manera efectiva tecnologías frontend y
 Este proyecto es una versión funcional desarrollada como práctica académica. Puede seguir evolucionando como base para futuros proyectos relacionados con gestión de bibliotecas.
 
 🙌 Autores
-Integrantes del equipo académico (Argentina Programa / Facultad)
+Liquitay Lautaro
 
-Subido por @lautaroliqui
+Esteban Pérez
+
+Darío Ruiz
 
