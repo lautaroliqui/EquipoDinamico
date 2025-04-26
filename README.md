@@ -46,14 +46,19 @@ El proyecto logró integrar y aplicar de manera efectiva tecnologías frontend y
    git clone https://github.com/lautaroliqui/EquipoDinamico.git
    cd EquipoDinamico
 2. **Crear un entorno virtual**
-   python -m venv env  # Esto crea el entorno
-    source env/bin/activate  # Esto activa el entorno en Linux/Mac
-    .\env\Scripts\activate  # En Windows
-3. **Instalar Dependencias**
-     pip install django
-4. Ejecutar el servidor
+   ```
+   python -m venv env
+   source env/Scripts/activate  # En Windows
+   # o
+   source env/bin/activate      # En Linux/Mac
+4. **Instalar Dependencias**
+   ```
+     pip install -r requirements.txt
+6. Ejecutar el servidor
+   ```
     python manage.py runserver
    
+---
 
 ✅ Funcionalidades principales
 📖 Agregar, editar y eliminar libros
