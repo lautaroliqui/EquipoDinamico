@@ -60,6 +60,15 @@ El proyecto logró integrar y aplicar de manera efectiva tecnologías frontend y
    
 ---
 
+🔥 Notas:
+Se requiere Python 3.10 o superior instalado.
+
+Las dependencias están listadas en requirements.txt.
+
+La base de datos db.sqlite3 ya está configurada para el proyecto.
+
+---
+
 ✅ Funcionalidades principales
 📖 Agregar, editar y eliminar libros
 
@@ -73,8 +82,12 @@ El proyecto logró integrar y aplicar de manera efectiva tecnologías frontend y
 
 🗃️ Base de datos local con SQLite
 
+---
+
 📌 Estado del proyecto
 Este proyecto es una versión funcional desarrollada como práctica académica. Puede seguir evolucionando como base para futuros proyectos relacionados con gestión de bibliotecas.
+
+---
 
 🙌 Autores
 Liquitay Lautaro
@@ -82,4 +95,3 @@ Liquitay Lautaro
 Esteban Pérez
 
 Darío Ruiz
-
